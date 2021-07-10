@@ -8,9 +8,9 @@ namespace LinkedList
         {
             Console.WriteLine("Linked List........");
             List list = new List();
-            list.Addfront(70);
-            list.Addfront(30);
-            list.Addfront(56);
+            list.Add(56);
+            list.Add(70);
+            list.insert(30);
             list.Display();
         }
     }

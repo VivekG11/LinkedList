@@ -6,9 +6,12 @@ namespace LinkedList
 {
     public class List
     {
+        public int count = 0;
+        int ptr;
         internal Node head;
         internal void Add(int data)
         {
+            
             Node node = new Node(data);
             if ((this.head) == null)
             {
@@ -22,9 +25,13 @@ namespace LinkedList
                     temp = temp.next;
                 }
                 temp.next = node;
+               
             }
+            
             Console.WriteLine(node.data + " is added to the list.");
+
         }
+        //Adding elements from front
         public void Addfront(int data)
         {
             Node node = new Node(data);
@@ -40,8 +47,27 @@ namespace LinkedList
             }
             Console.WriteLine("Element added is :"+node.data);
         }
+
+       public void insert(int data)
+        {
+            if (head == null)
+            {
+                Console.WriteLine("List is Empty.");
+            }
+            else
+            {
+                Node node = new Node(data);
+                Node temp = head;
+                int ptr = ((count % 2) == 0) ? (count / 2) : (count + 1) / 2;
+                while (ptr-- > 1)
+                    temp = temp.next;
+                node.next = temp.next;
+                temp.next = node;
+            }
+        }
         public void Display()
         {
+            int count = 0;
             Console.WriteLine("Elements in the list are ..");
             Node temp = this.head;
             if(temp == null)
@@ -52,7 +78,10 @@ namespace LinkedList
             {
                 Console.Write(temp.data+",");
                 temp = temp.next;
+                count++;
             }
+            Console.WriteLine("\nTotal elements in the list are :"+count);
+            
         }
       
     }
