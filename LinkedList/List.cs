@@ -25,6 +25,21 @@ namespace LinkedList
             }
             Console.WriteLine(node.data + " is added to the list.");
         }
+        public void Addfront(int data)
+        {
+            Node node = new Node(data);
+            if(this.head == null)
+            {
+                Console.WriteLine("List is Empty");
+                this.head = node;
+            }
+            else if(this.head!= null)
+            {
+                node.next = head;
+                this.head = node;
+            }
+            Console.WriteLine("Element added is :"+node.data);
+        }
         public void Display()
         {
             Console.WriteLine("Elements in the list are ..");
