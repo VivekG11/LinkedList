@@ -47,7 +47,7 @@ namespace LinkedList
             }
             Console.WriteLine("Element added is :"+node.data);
         }
-
+        //Inserting an element
        public void insert(int data)
         {
             if (head == null)
@@ -64,6 +64,17 @@ namespace LinkedList
                 node.next = temp.next;
                 temp.next = node;
             }
+        }
+        //Deleting first element from Linked List
+        public Node DeleteFirst()
+        {
+           if(this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next;
+            return this.head;
+           
         }
         public void Display()
         {
