@@ -86,31 +86,42 @@ namespace LinkedList
             temp.next = null;
             return temp;
         }
-        public int searchNode()
+        public Node searchNode(int val)
         {
             Node temp = head;
             int index = 0;
             int flag = 0;
-            int val = Convert.ToInt32(Console.ReadLine());
-            while(temp!= null)
+
+            while (temp != null)
             {
                 index++;
-                if(temp.data == val)
+                if (temp.data == val)
                 {
                     flag = 1;
                     break;
                 }
                 temp = temp.next;
             }
-            if(flag == 1)
+            if (flag == 1)
             {
-                Console.WriteLine("Element is found at :"+index);
+                Console.WriteLine("Element is found at :" + index);
             }
             else
             {
                 Console.WriteLine("There is no such element in the list.");
             }
-            return val;
+            return temp;
+
+        }
+
+        public int SearchNInsert(int val , int data)
+        {
+            Node search = searchNode(data);
+            Node node = new Node(val);
+            Node temp = search.next; 
+            search.next = node;
+            node.next = temp ;
+            return (node.data);
         }
 
         public void Display()
