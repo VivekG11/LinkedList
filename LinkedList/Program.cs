@@ -12,6 +12,7 @@ namespace LinkedList
             list.Add(30);
             list.Add(70);
             list.SearchNInsert(40,30);
+            list.DeleteNode(40);
             list.Display();
            
         }

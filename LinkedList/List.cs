@@ -123,6 +123,22 @@ namespace LinkedList
             node.next = temp ;
             return (node.data);
         }
+        public void DeleteNode(int val)
+        {
+           
+            Node temp = this.head;
+            Console.WriteLine("Deleting a specific Node.");
+           
+            if (temp.next.data == val)
+            {
+                temp.next = temp.next.next;
+                
+            }
+           
+            temp = temp.next;
+           
+            Console.WriteLine("Deleted element is :" + val);
+        }
 
         public void Display()
         {
