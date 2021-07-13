@@ -11,7 +11,7 @@ namespace LinkedList
         internal Node head;
         internal void Add(int data)
         {
-            
+
             Node node = new Node(data);
             if ((this.head) == null)
             {
@@ -25,9 +25,9 @@ namespace LinkedList
                     temp = temp.next;
                 }
                 temp.next = node;
-               
+
             }
-            
+
             Console.WriteLine(node.data + " is added to the list.");
 
         }
@@ -35,20 +35,20 @@ namespace LinkedList
         public void Addfront(int data)
         {
             Node node = new Node(data);
-            if(this.head == null)
+            if (this.head == null)
             {
                 Console.WriteLine("List is Empty");
                 this.head = node;
             }
-            else if(this.head!= null)
+            else if (this.head != null)
             {
                 node.next = head;
                 this.head = node;
             }
-            Console.WriteLine("Element added is :"+node.data);
+            Console.WriteLine("Element added is :" + node.data);
         }
         //Inserting an element
-       public void insert(int data)
+        public void insert(int data)
         {
             if (head == null)
             {
@@ -68,18 +68,18 @@ namespace LinkedList
         //Deleting first element from Linked List
         public Node DeleteFirst()
         {
-           if(this.head == null)
+            if (this.head == null)
             {
                 return null;
             }
             this.head = this.head.next;
             return this.head;
-           
+
         }
         public Node DeleteLast()
         {
             Node temp = head;
-            while(temp.next.next != null)
+            while (temp.next.next != null)
             {
                 temp = temp.next;
             }
@@ -114,31 +114,50 @@ namespace LinkedList
 
         }
 
-        public int SearchNInsert(int val , int data)
+        public int SearchNInsert(int val, int data)
         {
             Node search = searchNode(data);
             Node node = new Node(val);
-            Node temp = search.next; 
+            Node temp = search.next;
             search.next = node;
-            node.next = temp ;
+            node.next = temp;
             return (node.data);
         }
         public void DeleteNode(int val)
         {
-           
+
             Node temp = this.head;
             Console.WriteLine("Deleting a specific Node.");
-           
+
             if (temp.next.data == val)
             {
                 temp.next = temp.next.next;
-                
+
             }
-           
+
             temp = temp.next;
-           
+
             Console.WriteLine("Deleted element is :" + val);
         }
+        public void Sort()
+        {
+            Node i, j;
+            int temp;
+            for(i = this.head;i.next!=null;i=i.next)
+            {
+                for(j = i.next;j!=null;j=j.next)
+                {
+                    if(i.data > j.data)
+                    {
+                        temp = i.data;
+                        i.data = j.data;
+                        j.data = temp;
+                    }
+                }
+
+            }
+        }
+       
 
         public void Display()
         {
